@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChifuCoffe - Café para amantes de gatos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff8f0;
+        }
+        
+        .cat-paw {
+            position: absolute;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .menu-item:hover .menu-hover {
+            transform: scale(1.05);
+        }
+        
+        .cat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-overlay {
+            background-color: rgba(107, 70, 43, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="bg-amber-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-cat text-2xl mr-2 text-amber-200"></i>
+                <h1 class="text-xl md:text-2xl font-bold">ChifuCoffe</h1>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#inicio" class="hover:text-amber-200 transition">Inicio</a></li>
+                    <li><a href="#menu" class="hover:text-amber-200 transition">Menú</a></li>
+                    <li><a href="#gatos" class="hover:text-amber-200 transition">Nuestros Gatos</a></li>
+                    <li><a href="#adopcion" class="hover:text-amber-200 transition">Adopción</a></li>
+                    <li><a href="#contacto" class="hover:text-amber-200 transition">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden text-xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero relative h-screen flex items-center">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="container mx-auto px-4 relative z-10 text-white text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">ChifuCoffe</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Donde el mejor café se mezcla con ronroneos y caricias</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#menu" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Ver Menú</a>
+                <a href="#adopcion" class="bg-transparent hover:bg-white hover:text-amber-900 border-2 border-white font-bold py-3 px-6 rounded-lg transition duration-300">Adopta un gato</a>
+            </div>
+        </div>
+        
+        <!-- Decorative cat paws -->
+        <div class="cat-paw" style="top: 20%; left: 10%;">
+            <i class="fas fa-paw text-amber-200 text-3xl"></i>
+        </div>
+        <div class="cat-paw" style="top: 70%; left: 85%;">
+            <i class="fas fa-paw text-amber-200 text-5xl"></i>
+        </div>
+        <div class="cat-paw" style="top: 50%; left: 15%;">
+            <i class="fas fa-paw text-amber-200 text-4xl"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-amber-900 mb-6">Nuestra Filosofía</h2>
+                    <p class="text-gray-700 mb-4">En ChifuCoffe creemos en la combinación perfecta entre un café de calidad y la compañía relajante de nuestros amigos felinos. Nuestro objetivo es crear un espacio acogedor donde puedas disfrutar de bebidas y alimentos preparados con amor, mientras interactúas con gatos rescatados en espera de un hogar permanente.</p>
+                    <p class="text-gray-700 mb-6">Más que una cafetería, somos un santuario temporal para gatos necesitados y un centro de concienciación sobre la tenencia responsable de mascotas.</p>
+                    <div class="flex items-center">
+                        <div class="bg-amber-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-heart text-amber-700 text-xl"></i>
+                        </div>
+                        <p class="text-gray-700"><span class="font-bold text-amber-900">+500 gatos</span> rescatados y adoptados</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="relative rounded-xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1541781774459-bb2af02f8cca?ixlib=rb-4.0.3" alt="Gatos en cafetería" class="w-full h-auto">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <p class="text-white italic">"El tiempo que pasa con gatos nunca es tiempo perdido" - Sigmund Freud</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-amber-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-amber-900 mb-4">Nuestro Menú</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">Productos de calidad seleccionados cuidadosamente para acompañar tu experiencia con nuestros gatos.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Coffee Menu Item -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-4.0.3" alt="Café especial" class="w-full h-full object-cover menu-hover transition duration-500">
+                        <div class="absolute top-0 right-0 bg-amber-500 text-white px-3 py-1 rounded-bl-lg">$$</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Cafés Especiales</h3>
+                            <i class="fas fa-mug-hot text-amber-600 text-xl"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4">Selección de cafés de origen único preparados con métodos artesanales.</p>
+                        <ul class="text-gray-700">
+                            <li class="mb-1">• Chifu Latte (nuestra especialidad)</li>
+                            <li class="mb-1">• Espresso Felino</li>
+                            <li class="mb-1">• Cappucino Bigotudo</li>
+                            <li class="mb-1">• Café con Leche Ronroneante</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Food Menu Item -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-4.0.3" alt="Comida saludable" class="w-full h-full object-cover menu-hover transition duration-500">
+                        <div class="absolute top-0 right-0 bg-amber-500 text-white px-3 py-1 rounded-bl-lg">$$</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Alimentos Saludables</h3>
+                            <i class="fas fa-utensils text-amber-600 text-xl"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4">Delicias caseras preparadas con ingredientes frescos y naturales.</p>
+                        <ul class="text-gray-700">
+                            <li class="mb-1">• Tostadas Bigotes Felices</li>
+                            <li class="mb-1">• Sándwich Colita Alegre</li>
+                            <li class="mb-1">• Ensalada Patitas Verdes</li>
+                            <li class="mb-1">• Pastel Orejas de Gato</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Special Menu Item -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3" alt="Postres" class="w-full h-full object-cover menu-hover transition duration-500">
+                        <div class="absolute top-0 right-0 bg-amber-500 text-white px-3 py-1 rounded-bl-lg">$$</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Postres Especiales</h3>
+                            <i class="fas fa-ice-cream text-amber-600 text-xl"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4">Dulces tentaciones con formas felinas para endulzar tu día.</p>
+                        <ul class="text-gray-700">
+                            <li class="mb-1">• Cupcakes Gatunos</li>
+                            <li class="mb-1">• Galletas Huellitas</li>
+                            <li class="mb-1">• Cheesecake Miau</li>
+                            <li class="mb-1">• Brownie Ronroneo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300">Ver Menú Completo <i class="fas fa-arrow-right ml-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cats Section -->
+    <section id="gatos" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-amber-900 mb-4">Nuestros Compañeros Felinos</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">Estos adorables gatos están listos para hacerte compañía y quizás convertirse en parte de tu familia.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Cat Card 1 -->
+                <div class="cat-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3" alt="Gato Bigotes" class="w-full h-full object-cover">
+                        <div class="absolute top-2 right-2 bg-amber-500 text-white px-2 py-1 rounded-full text-xs">
+                            En adopción
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Bigotes</h3>
+                        <div class="flex items-center text-sm text-gray-600 mb-2">
+                            <i class="fas fa-venus mr-1 text-amber-600"></i> Macho • 2 años
+                        </div>
+                        <p class="text-gray-700 mb-3">Bigotes es un gato tranquilo que adora dormir en las mesas junto a los clientes. Le encanta que le acaricien la barbilla.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-1 text-amber-500">
+                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw text-gray-300"></i>
+                            </div>
+                            <button class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2 py-1 rounded transition">Saber más</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cat Card 2 -->
+                <div class="cat-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?ixlib=rb-4.0.3" alt="Gata Luna" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Luna</h3>
+                        <div class="flex items-center text-sm text-gray-600 mb-2">
+                            <i class="fas fa-mars mr-1 text-amber-600"></i> Hembra • 3 años
+                        </div>
+                        <p class="text-gray-700 mb-3">La princesa de la cafetería. Luna es curiosa y le encanta explorar. Adora jugar con cuerdas y plumas.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-1 text-amber-500">
+                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw text-gray-300"></i>
+                                <i class="fas fa-paw text-gray-300"></i>
+                            </div>
+                            <button class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2 py-1 rounded transition">Saber más</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cat Card 3 -->
+                <div class="cat-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?ixlib=rb-4.0.3" alt="Gato Simón" class="w-full h-full object-cover">
+                        <div class="absolute top-2 right-2 bg-amber-500 text-white px-2 py-1 rounded-full text-xs">
+                            En adopción
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Simón</h3>
+                        <div class="flex items-center text-sm text-gray-600 mb-2">
+                            <i class="fas fa-venus mr-1 text-amber-600"></i> Macho • 1 año
+                        </div>
+                        <p class="text-gray-700 mb-3">El más juguetón de todos. Simón nunca dice no a una sesión de juegos. Perfecto para familias activas.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-1 text-amber-500">
+                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw"></i>
+                            </div>
+                            <button class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2 py-1 rounded transition">Saber más</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cat Card 4 -->
+                <div class="cat-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1472491236930-c7e2d620d66d?ixlib=rb-4.0.3" alt="Gata Misha" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Misha</h3>
+                        <div class="flex items-center text-sm text-gray-600 mb-2">
+                            <i class="fas fa-mars mr-1 text-amber-600"></i> Hembra • 4 años
+                        </div>
+                        <p class="text-gray-700 mb-3">Misha es nuestra gata terapéutica. Su ronroneo es capaz de calmar hasta el peor de los días estresantes.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-1 text-amber-500">
+                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw"></i>
+                                <i class="fas fa-paw text-gray-300"></i>
+                                <i class="fas fa-paw text-gray-300"></i>
+                            </div>
+                            <button class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2 py-1 rounded transition">Saber más</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adoption Section -->
+    <section id="adopcion" class="py-20 bg-amber-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Adopta, No Compres</h2>
+                    <p class="mb-6">En ChifuCoffe estamos comprometidos con el bienestar felino. Todos nuestros gatos están esterilizados, vacunados y desparasitados antes de estar disponibles para adopción.</p>
+                    <p class="mb-8">Nuestro proceso de adopción asegura que cada gato encuentre el hogar perfecto que se ajuste a sus necesidades y personalidad.</p>
+                    
+                    <div class="bg-amber-800 rounded-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold mb-4">¿Por qué adoptar?</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-amber-300 mr-2 mt-1"></i>
+                                <span>Salvas una vida y das una segunda oportunidad</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-amber-300 mr-2 mt-1"></i>
+                                <span>Recibes un animal con atención médica completa</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-amber-300 mr-2 mt-1"></i>
+                                <span>Contribuyes a reducir el abandono animal</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-amber-300 mr-2 mt-1"></i>
+                                <span>Adquieres una mascota con personalidad ya conocida</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <a href="#contacto" class="inline-block bg-white hover:bg-gray-100 text-amber-900 font-bold py-3 px-8 rounded-lg transition duration-300">¡Quiero adoptar!</a>
+                </div>
+                
+                <div class="lg:w-1/2 lg:pl-10">
+                    <div class="bg-white text-gray-800 rounded-lg shadow-xl overflow-hidden">
+                        <div class="bg-amber-700 text-white p-4 font-bold text-center">Nuestros Requisitos de Adopción</div>
+                        <div class="p-6">
+                            <div class="mb-6 pb-6 border-b border-gray-200">
+                                <h3 class="text-xl font-bold text-amber-800 mb-3">Documentación Necesaria</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-file-alt text-amber-600 mr-2 mt-1"></i>
+                                        <span>DNI o documento identificativo</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-home text-amber-600 mr-2 mt-1"></i>
+                                        <span>Contrato de alquiler que permita mascotas (en caso de alquiler)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-6 pb-6 border-b border-gray-200">
+                                <h3 class="text-xl font-bold text-amber-800 mb-3">Compromisos</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-heartbeat text-amber-600 mr-2 mt-1"></i>
+                                        <span>Proporcionar atención veterinaria cuando sea necesario</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-home text-amber-600 mr-2 mt-1"></i>
+                                        <span>Mantenerlo en un hogar seguro (no exterior sin supervisión)</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-utensils text-amber-600 mr-2 mt-1"></i>
+                                        <span>Proporcionar alimentación adecuada</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-xl font-bold text-amber-800 mb-3">Seguimiento</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-camera text-amber-600 mr-2 mt-1"></i>
+                                        <span>Envío de fotos periódicas durante el primer año</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-phone-alt text-amber-600 mr-2 mt-1"></i>
+                                        <span>Contacto telefónico de seguimiento</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cat Care Section -->
+    <section class="py-20 bg-amber-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-amber-900 mb-4">Cuidado Felino Responsable</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">Conoce los principios básicos para ofrecer a tu gato una vida larga, saludable y feliz.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Care Card 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-amber-600 text-4xl mb-4">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Salud Preventiva</h3>
+                    <ul class="text-gray-700 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-amber-500 mr-2 mt-1"></i>
+                            <span>Vacunación anual</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-amber-500 mr-2 mt-1"></i>
+                            <span>Desparasitación regular</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-amber-500 mr-2 mt-1"></i>
+                            <span>Esterilización temprana</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-amber-500 mr-2 mt-1"></i>
+                            <span>Revisiones veterinarias periódicas</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Care Card 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-amber-600 text-4xl mb-4">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Ambiente Ideal</h3>
+                    <ul class="text-gray-700 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-amber-500 mr-2 mt-1"></i>
+                            <span>Espacio vertical para escalar</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-amber-500 mr-2 mt-1"></i>
+                            <span>Rascadores disponibles</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-amber-500 mr-2 mt-1"></i>
+                            <span>Zonas tranquilas para descansar</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-amber-500 mr-2 mt-1"></i>
+                            <span>Acceso limitado al exterior con supervisión</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Care Card 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-amber-600 text-4xl mb-4">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Nutrición y Bienestar</h3>
+                    <ul class="text-gray-700 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-amber-500 mr-2 mt-1"></i>
+                            <span>Alimento de calidad según edad</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-amber-500 mr-2 mt-1"></i>
+                            <span>Agua fresca siempre disponible</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-amber-500 mr-2 mt-1"></i>
+                            <span>Juegos y estimulación mental</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-amber-500 mr-2 mt-1"></i>
+                            <span>Caja de arena limpia diariamente</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-white p-6 rounded-lg shadow-md max-w-3xl mx-auto">
+                <h3 class="text-xl font-bold text-center text-amber-900 mb-4">¿Tienes dudas sobre el cuidado de tu gato?</h3>
+                <p class="text-center text-gray-700 mb-6">En ChifuCoffe ofrecemos talleres mensuales gratuitos sobre cuidado felino, primeros auxilios y comportamiento. ¡Visítanos para más información!</p>
+                <div class="text-center">
+                    <button class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded transition duration-300">Ver calendario de talleres</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-amber-900 mb-4">Lo que dicen nuestros clientes</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">Experiencias reales de quienes ya han disfrutado del ambiente único de ChifuCoffe.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-amber-50 p-6 rounded-lg relative">
+                    <div class="text-amber-300 text-4xl absolute top-0 left-0 transform -translate-y-4">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6">"El mejor café que he probado acompañado de los ronroneos más relajantes. Adopté a Bigotes hace 3 meses y ha sido la mejor decisión de mi vida. ¡Gracias ChifuCoffe!"</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/47.jpg" alt="Cliente 1" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-bold text-gray-800">Laura Méndez</p>
+                            <p class="text-sm text-gray-600">Adoptante • Cliente habitual</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-amber-50 p-6 rounded-lg relative">
+                    <div class="text-amber-300 text-4xl absolute top-0 left-0 transform -translate-y-4">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6">"Vengo todas las semanas a trabajar aquí. El ambiente es perfecto, WiFi rápido y los gatos te hacen compañía sin ser invasivos. El Chifu Latte es adictivo."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 2" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-bold text-gray-800">Carlos Rodríguez</p>
+                            <p class="text-sm text-gray-600">Freelancer • Cliente semanal</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-amber-50 p-6 rounded-lg relative">
+                    <div class="text-amber-300 text-4xl absolute top-0 left-0 transform -translate-y-4">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6">"Los talleres de cuidado felino me ayudaron mucho con mi gato adoptado. Ahora entiendo mejor sus necesidades y nuestro vínculo es más fuerte que nunca."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Cliente 3" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-bold text-gray-800">Ana Sánchez</p>
+                            <p class="text-sm text-gray-600">Asistente a talleres • Adoptante</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20 bg-amber-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Visítanos</h2>
+                    <p class="mb-8">Estamos ubicados en el corazón de la ciudad, en un espacio especialmente diseñado para que tanto humanos como gatos se sientan cómodos.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-amber-300 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold">Dirección</h4>
+                                <p>Calle Gatuna Feliz, 24<br>28000 Madrid, España</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-clock text-amber-300 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold">Horario</h4>
+                                <p>Lunes a Viernes: 9:00 - 20:00<br>
+                                Sábados: 10:00 - 22:00<br>
+                                Domingos: 10:00 - 18:00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt text-amber-300 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold">Contacto</h4>
+                                <p>+34 910 123 456<br>hola@chifucoffe.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-3">Síguenos en redes</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-2xl hover:text-amber-300 transition"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-2xl hover:text-amber-300 transition"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="text-2xl hover:text-amber-300 transition"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-2xl hover:text-amber-300 transition"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-white text-gray-800 rounded-lg p-6 shadow-xl">
+                        <h3 class="text-xl font-bold text-amber-900 mb-4">Contáctanos</h3>
+                        <form>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+                                    <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-amber-500 focus:border-amber-500">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-amber-500 focus:border-amber-500">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Asunto</label>
+                                <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-amber-500 focus:border-amber-500">
+                                    <option>Consulta general</option>
+                                    <option>Información sobre adopción</option>
+                                    <option>Reserva de mesa</option>
+                                    <option>Talleres y eventos</option>
+                                    <option>Otro</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-amber-500 focus:border-amber-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">Enviar mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="h-96 w-full">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.430311083126!2d-3.7037902880196775!3d40.41677547133646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287e0e4d0dcf%3A0xb8a876c4a940c7a1!2sPuerta%20del%20Sol!5e0!3m2!1ses!2ses!4v1687091810675!5m2!1ses!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-amber-950 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-cat text-2xl mr-2 text-amber-400"></i>
+                        <h3 class="text-xl font-bold">ChifuCoffe</h3>
+                    </div>
+                    <p class="text-amber-200">Donde cada taza viene con amor y cada gato espera una familia.</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-amber-300 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-amber-300 hover:text-white transition"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-amber-300 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Enlaces rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-amber-200 hover:text-white transition">Inicio</a></li>
+                        <li><a href="#menu" class="text-amber-200 hover:text-white transition">Menú</a></li>
+                        <li><a href="#gatos" class="text-amber-200 hover:text-white transition">Nuestros gatos</a></li>
+                        <li><a href="#adopcion" class="text-amber-200 hover:text-white transition">Adopción</a></li>
+                        <li><a href="#contacto" class="text-amber-200 hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Horario</h4>
+                    <ul class="space-y-2 text-amber-200">
+                        <li>Lunes - Viernes: 9am - 8pm</li>
+                        <li>Sábados: 10am - 10pm</li>
+                        <li>Domingos: 10am - 6pm</li>
+                    </ul>
+                    <h4 class="text-lg font-bold mt-4 mb-2">Reservas</h4>
+                    <p class="text-amber-200">Recomendado para fines de semana.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Suscríbete</h4>
+                    <p class="text-amber-200 mb-4">Recibe nuestras novedades y promociones especiales.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Tu email" class="px-4 py-2 rounded-l-lg w-full text-gray-800 focus:outline-none">
+                        <button class="bg-amber-600 hover:bg-amber-700 px-4 py-2 rounded-r-lg transition"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    <p class="text-xs text-amber-200 mt-2">Prometemos no enviar spam.</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-amber-800 mt-12 pt-8 text-center text-amber-300">
+                <p>&copy; 2023 ChifuCoffe. Todos los derechos reservados. | <a href="#" class="hover:text-white transition">Política de privacidad</a> | <a href="#" class="hover:text-white transition">Términos de servicio</a></p>
+                <p class="mt-2">Diseñado con <i class="fas fa-heart text-red-400"></i> para amantes de los gatos</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('header button').addEventListener('click', function() {
+            const nav = document.querySelector('header nav');
+            nav.classList.toggle('hidden');
+            nav.classList.toggle('block');
+            nav.classList.toggle('absolute');
+            nav.classList.toggle('top-16');
+            nav.classList.toggle('left-0');
+            nav.classList.toggle('right-0');
+            nav.classList.toggle('bg-amber-900');
+            nav.classList.toggle('px-4');
+            nav.classList.toggle('py-3');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const nav = document.querySelector('header nav');
+                if (!nav.classList.contains('hidden')) {
+                    nav.classList.add('hidden');
+                    nav.classList.remove('block', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-amber-900', 'px-4', 'py-3');
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the data to a server
+            console.log('Form submitted:', { name, email, subject, message });
+            
+            // Show success message
+            alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
